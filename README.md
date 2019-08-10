@@ -21,14 +21,14 @@ After the recession in 2008 hit the financial sector and left everyone panting f
 
 The three Vs of big data - **velocity,** **volume** and **variety** have accelerated the banking sector in various aspects. In investment banking, the volume of data is growing manifold day-by-day and so has its velocity. Cloud computing and Hadoop have enabled the big data platforms to cater to the tremendous volume of data. Banks have now realized the potential of big data and are employing the same in their systems to make it future-proof.
 
-<img src="./image_gallery/fintech.png" width="750" height="300"/>
+<img src="./image_gallery/fintech.png" width="850" height="400"/>
 
 ### Health And Wellness
 The evolution of the healthcare domain was only observed after big healthcare organizations started investing in big data. The amount at which the data was flowing in, made it difficult for the traditional data-processing application software to cope with the data. Big data has tools like Hadoop, MapReduce, Hive, Pig which help in proper management of big volumes of data as well as in processing it for the welfare of the domain. At times, cancer is untraceable in a human body which leads to late detection or no detection at all. Big data helps in solving that problem.
 
 Patients need their body-metrics tracked every time which involves everything from heartbeat to sugar levels. Big data takes care of that too.
 
-<img src="./image_gallery/health.png" width="750" height="300"/>
+<img src="./image_gallery/health.png" width="850" height="400"/>
 
 
 ### Education And Electronic Teaching
@@ -43,7 +43,7 @@ Weather forecasting is the most common application and it has been operating for
 
 To carry out data cleansing, data transformation, statistical modeling, data visualization, machine learning, and countless more.
 
-<img src="./image_gallery/pwf.png" width="750" height="400"/>
+<img src="./image_gallery/pwf.png" width="850" height="400"/>
 
 
 ### RStudio Workflow
