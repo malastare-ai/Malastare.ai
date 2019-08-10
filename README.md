@@ -88,8 +88,6 @@ Our Problem Solving Roadmap
 
 <img src="./image_gallery/bs.png" width="850" height="400"/>
 
-![](https://media.giphy.com/media/xTiTntOKF6uzXbMX28/giphy.gif)
-
 ### License
 
 These project are licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
