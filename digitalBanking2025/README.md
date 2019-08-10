@@ -28,7 +28,7 @@ All the codes run on Python 3.7.0
 
 ### Our 6 Step Problem Solving Roadmap Advancing Me
 
-<img src="./image/cs.png" width="680" height="400"/>
+<img src="./image/cs.png" width="780" height="600"/>
 
 Gain the best results in solving complex and important problems. We-Do!
 
