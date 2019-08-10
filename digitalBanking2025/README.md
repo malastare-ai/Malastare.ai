@@ -26,9 +26,7 @@ The following folder structure has been followed and consists of the following: 
 # Build and Test
 All the codes run on Python 3.7.0
 
-### Our 6 Step Problem Solving Roadmap Advancing Me
-
-<img src="./image/cs.png" width="780" height="600"/>
+### Our 6 Step Problem Solving Roadmap
 
 Gain the best results in solving complex and important problems. We-Do!
 
