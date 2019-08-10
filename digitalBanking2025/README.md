@@ -26,7 +26,9 @@ The following folder structure has been followed and consists of the following: 
 # Build and Test
 All the codes run on Python 3.7.0
 
-### Our 6 Step Problem Solving Roadmap
+### Our 6 Step Problem Solving Roadmap Advancing Me
+
+<img src="./image_gallery/digitalBanking2025/cs.png" width="850" height="400"/>
 
 Gain the best results in solving complex and important problems. We-Do!
 
