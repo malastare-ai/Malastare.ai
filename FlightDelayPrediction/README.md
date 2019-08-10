@@ -3,9 +3,38 @@
 # RIHAD VARIAWA, Data Scientist
 # Air Travel
 
+Researchers are using artificial intelligence to help airlines price ancillary services such as checked bags and seat reservations in a way that is beneficial to customers' budget and privacy, as well as to the airline industry's bottom line.
+
+When airlines began unbundling the costs of flights and ancillary services in 2008, many customers saw it as a tactic to quote a low base fare and then add extras to boost profits, the researchers said. In a new study, the researchers use unbundling to meet customer needs while also maximizing airline revenue with intelligent, individualized pricing models offered in real time as a customer shops.
+
+The results of the study will be presented at the 2019 Conference on Knowledge Discovery and Data Mining on Aug. 6 in Anchorage, Alaska.
+
+Airlines operate on very slim margins. While they earn a considerable portion of their revenue on ancillary purchases, unbundling can provide cost-saving opportunities to customers, as well. Customers don't have to pay for things they don't need, and discounts offered to customers who may otherwise pass on the extras can help convert a "no sale" into a purchase.
+
+"Most airlines offer every customer the same price for a checked bag," said Lavanya Marla, a professor of industrial and enterprise systems engineering and study co-author. "However, not every customer has the same travel and budget needs. With AI, we can use information gathered while they shop to predict a price point at which they will be comfortable."
+
+To hit that sweet spot, the pricing models use a combination of AI techniques -- machine learning and deep neural networks -- to track and assign a level of demand on an individual customer's flight preferences. The models consider various price factors such as flight origin, destination, the timing of travel and duration of a trip to assign a value on demand.
+
+"For example, a customer who is traveling for a few days may not be motivated to pay for a checked bag," Marla said. "But, if you discount it to them at the right price -- where convenience outweighs cost -- you can complete that sales conversion. That is good for the customer and good for the airline."
+
+In the study, the University of Illinois and Deepair Solutions team collaborated with a European airline over a period of approximately six months to gather data and test their models. While shopping, customers logged in to a pricing page where a predetermined percentage of customers are offered discounts on ancillary services.
+
+"We started by offering the AI-modeled discounts to 5% of the customers who logged in," said Kartik Yellepeddi, a co-founder of Deepair Solutions and study co-author. "The airline then allowed us to adjust this percentage, as well as to experiment with various AI techniques used in our models, to obtain a robust dataset."
+
+The airline began to see an uptick in ancillary sales conversions and revenue per customer, and allowed the researchers to offer discounts to all of the customers who logged in.
+
+"Because of the unique nature of personalized pricing, we built a high level of equity and privacy into our models," Yellepeddi said. "There is a maximum price not to be exceeded, and we do not track customer demographics information like income, race, gender, etc., nor do we track a single customer during multiple visits to a sale site. Each repeat visit is viewed as a separate customer."
+
+With an increase seen in ancillary sales conversions and ancillary revenue per offer -- up by 17% and 25%, respectively, according to the study -- the team said AI can help the airline industry move away from the concept of the "average customer" and tailor their offers to "individual travelers."
+
+"In recent years, the airline industry has felt that it has been losing touch with its customer base," Marla said. "The industry is eager to find new ways to meet customer needs and to retain customer loyalty."
+
+Deepair Solutions is an artificial intelligence company serving the travel industry. The company is headquartered in London and has an office in Dallas.
+
+
 ## Overview
 
-This task presents an operationalization on hetergeneous DSVM set for elastic data science on Azure cloud 
+This task presents an operationalization on hetergeneous DSVM set for elastic data science on Azure cloud for air delays
 
 The repository contains three parts
 
