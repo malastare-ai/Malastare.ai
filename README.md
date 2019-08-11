@@ -39,7 +39,7 @@ Weather forecasting is the most common application and it has been operating for
 
 ## Data Processing Overview
 
-<img src="./image_gallery/ml.png" width="850" height="400"/>
+<img src="./image_gallery/ml.png" width="850" height="600"/>
 
 ### Python Workflow
 
