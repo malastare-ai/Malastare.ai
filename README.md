@@ -37,7 +37,9 @@ Online teaching and education are taking the market by storm as it is been adopt
 ### Climate And Energy
 Weather forecasting is the most common application and it has been operating for quite a long time. Predicting any weather changes like storms, thunder, heavy rainfall makes it easy for forecasters to analyze and understand the future scenario much better. Issues like carbon emissions and hike in the level of the sea due to glaciers, environmental changes, and ecological disbalances can be calculated before its advent have any catastrophic effects on nature and human lives.
 
-## Our Tools for Data Processing
+## Data Processing Overview
+
+<img src="./image_gallery/ml.png" width="850" height="400"/>
 
 ### Python Workflow
 
