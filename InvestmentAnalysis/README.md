@@ -41,7 +41,7 @@ Spark Funds has two minor constraints for investments:
 
 *	**Sector analysis:** Understanding the distribution for investments across the eight main sectors. (Note that we are interested in the eight main sectors provided in the mapping file
 
-## Conflicts of Interest: The practitioner declare no conflict of interest.
+## Conflicts of Interest: The practitioners declare no conflict of interest.
 
 Our 6 Step Problem Solving Roadmap
 
