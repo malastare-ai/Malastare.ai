@@ -6,6 +6,8 @@
 
 ### Overview 
 
+Received: 11 June 2019; Accepted: 23 July 2019; Published: 11 August 2019
+
 AI in banking consists of four parts:
 1) Fraud detection
 2) Recommendation
@@ -25,6 +27,8 @@ The following folder structure has been followed and consists of the following: 
 
 # Build and Test
 All the codes run on Python 3.7.0
+
+## Conflicts of Interest: The practitioner declare no conflict of interest.
 
 ### Our 6 Step Problem Solving Roadmap
 

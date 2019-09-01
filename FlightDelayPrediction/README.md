@@ -1,7 +1,9 @@
 # Malastare AI
 # Data Science - *Operationalizing heterogeneous DSVM set for elastic data science in the cloud.*
 # RIHAD VARIAWA, Data Scientist
-# Air Travel
+# Air Travel - Fight Delay
+
+Received: 07 June 2019; Accepted: 24 July 2019; Published: 11 August 2019
 
 Researchers are using artificial intelligence to help airlines price ancillary services such as checked bags and seat reservations in a way that is beneficial to customers' budget and privacy, as well as to the airline industry's bottom line.
 
@@ -75,6 +77,7 @@ Detailed information for each of the machines is listed as follows
 
 Data storage is used for temporarily preserving processed data, and it can also be seamlessly connected to DSVMs and administrated within R session by using AzureSMR package  
 
+## Conflicts of Interest: The practitioner declare no conflict of interest.
 
 Our 6 Step Problem Solving Roadmap
 

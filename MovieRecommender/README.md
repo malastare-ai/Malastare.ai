@@ -3,6 +3,8 @@
 # RIHAD VARIAWA, Data Scientist
 # Movie Recommendation System
 
+Received: 13 June 2019; Accepted: 10 July 2019; Published: 2 August 2019
+
 ## About recommender systems
 
 Recommender systems have been there out for a while in the market. It uses two different types of algorithms to suggest the content to the users - content based and collaborative based
@@ -43,8 +45,10 @@ A recommender is built by using Spark built-in collaborative filtering algorithm
 
 The whole recommendation solution consists of Azure services such as Azure Data Science Virtual Machine, Azure blob storage, Azure Container Registry, Azure Container Services, etc. The building process is completed with Azure Machine Learning Service
 
-Our 6 Step Problem Solving Roadmap
 
+## Conflicts of Interest: The practitioner declare no conflict of interest.
+
+Our 6 Step Problem Solving Roadmap
 
 Gain the best results in solving complex and important problems. We-Do!
 

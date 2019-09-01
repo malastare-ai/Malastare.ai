@@ -1,8 +1,10 @@
 # Data Analysis - *Spark Funds an Asset Management Company*
-# RIHAD VARIAWA, Data Scientist
+# Data Science Analytics Team: Roenak Singh, Surjj Kumar, Swyti Kamat, Rihad Variawa
 # FinTech Industries
 
 ![](https://media.giphy.com/media/3oGRFF7ClUXX5dTf0c/giphy.gif)
+
+Received: 17 June 2019; Accepted: 31 July 2019; Published: 16 August 2019
 
 ## Fund management embrace machine learning
 
@@ -39,6 +41,7 @@ Spark Funds has two minor constraints for investments:
 
 *	**Sector analysis:** Understanding the distribution for investments across the eight main sectors. (Note that we are interested in the eight main sectors provided in the mapping file
 
+## Conflicts of Interest: The practitioner declare no conflict of interest.
 
 Our 6 Step Problem Solving Roadmap
 

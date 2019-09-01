@@ -5,6 +5,8 @@
 
 ## Overview
 
+Received: 05 June 2019; Accepted: 25 July 2019; Published: 30 August 2019
+
 This repo reproduces [CNTK tutorial 106
 B](https://github.com/Microsoft/CNTK/blob/master/Tutorials/CNTK_106B_LSTM_Timeseries_with_IOT_Data.ipynb)
 - Deep Learning time series forecasting with Long Short-Term Memory
@@ -59,6 +61,8 @@ modeling long-term depenencies in time series data. By properly
 processing the original data into sequences of power readings, a deep
 neural network formed by LSTM cells and dropout layers can capture the
 patterns in the time series so as to predict the output.
+
+### Conflicts of Interest: The practitioner declare no conflict of interest.
 
 ## Solution architecture
 
