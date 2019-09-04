@@ -3,7 +3,7 @@
 # RIHAD VARIAWA, Data Scientist
 # Movie Recommendation System
 
-Received: 13 June 2019; Accepted: 10 July 2019; Published: 2 August 2019
+Received: 13 June 2019; Accepted: 13 July 2019; Published: 2 August 2019
 
 ## About recommender systems
 

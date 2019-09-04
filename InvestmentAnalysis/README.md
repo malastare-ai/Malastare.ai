@@ -4,7 +4,7 @@
 
 ![](https://media.giphy.com/media/3oGRFF7ClUXX5dTf0c/giphy.gif)
 
-Received: 17 June 2019; Accepted: 31 July 2019; Published: 16 August 2019
+Received: 17 June 2019; Accepted: 27 July 2019; Published: 16 August 2019
 
 ## Fund management embrace machine learning
 

@@ -3,7 +3,7 @@
 # RIHAD VARIAWA, Data Scientist
 # Air Travel - Fight Delay
 
-Received: 07 June 2019; Accepted: 24 July 2019; Published: 11 August 2019
+Received: 07 June 2019; Accepted: 17 July 2019; Published: 11 August 2019
 
 Researchers are using artificial intelligence to help airlines price ancillary services such as checked bags and seat reservations in a way that is beneficial to customers' budget and privacy, as well as to the airline industry's bottom line.
 

@@ -1,6 +1,6 @@
 ## Malastare AI
 ## RIHAD VARIAWA, Data Scientist
-## FinTech Industries
+## FinTech Industries - digital banking
 
 ![](https://media.giphy.com/media/xTiTntOKF6uzXbMX28/giphy.gif)
 

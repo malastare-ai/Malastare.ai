@@ -5,7 +5,7 @@
 
 ## Overview
 
-Received: 05 June 2019; Accepted: 25 July 2019; Published: 30 August 2019
+Received: 03 June 2019; Accepted: 23 July 2019; Published: 30 August 2019
 
 This repo reproduces [CNTK tutorial 106
 B](https://github.com/Microsoft/CNTK/blob/master/Tutorials/CNTK_106B_LSTM_Timeseries_with_IOT_Data.ipynb)
