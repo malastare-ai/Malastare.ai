@@ -2,7 +2,7 @@
 
 Building a startup that is focused exclusively on two hypergrowth industries, blockchain, and artificial intelligence is truly exciting and game-changing. The reality is Malastare is a hypergrowth startup and it just isn’t for everyone. Unapologetically, we work hard, run hard, keep bureaucracy to a minimum and hold ourselves accountable in our quest to build something special. If these things interest you, you are in the right place.
 
-We are a group of product visionaries, talented engineers, data scientists, and customer-obsessed inventors who tackle the world’s most complex deep learning, artificial intelligence challenges in order to deliver best-in-class infrastructure and software solutions.
+We are a team of product visionaries, talented engineers, data scientists, and customer-obsessed inventors who tackle the world’s most complex deep learning, artificial intelligence challenges in order to deliver best-in-class infrastructure and software solutions.
 
 Our cutting-edge engineers and data scientists create disruptive real-world applications to realize the promise of nascent blockchain and AI technologies and provide highly secure and feature-rich solutions for our customers. We leverage the most advanced deep learning neural networks, based on best-in-class sentiment analysis and market analytics.
 
