@@ -1,0 +1,172 @@
+---
+title: "Warren Buffett Annual Letter To Shareholders"
+author: "Rihad Variawa"
+date: "5/13/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Install packages if necessary
+list.of.packages <- c("ggplot2", "dplyr", "", "XML", "rvest", "pdftools", "tidytext", "tidyr", "hrbrthemes", "knitr", "wordcloud")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+# Load Packages
+library(dplyr)         # For data manipulation
+library(ggplot2)       # For plotting
+library(hrbrthemes)    # For ggplot2 theme. Install with devtools::install_github("hrbrmstr/hrbrthemes")
+library(knitr)
+library(pdftools)      # For reading text from pdf files
+library(rvest)         # For scraping html text
+library(tidyr)         # For data cleaning
+library(tidytext)      # For data cleaning of text corpus
+library(wordcloud)     # For creating wordclouds
+library(XML)           # For easily reading HTML Tables
+```
+
+Reading through Warren Buffett's most recent letter to Berkshire Hathaway shareholders. Every year, he writes a letter that he makes [publicly available](http://www.berkshirehathaway.com/letters/letters.html) on the Berkshire Hathaway website. In the letters he talks about the performance of Berkshire Hathaway and their portfolio of businesses and investments. But he also talks about his views on business, the market, and investing more generally, and it's after this wisdom that many investors, including me, read what he has to say. In many ways Warren Buffett's letters are atypical. When most companies report their financial performance, they fill their reports with dense, technical language designed to obscure and confuse. Mr. Buffett does not follow this approach. 
+
+His letters are written in easily understandable language, beacuse he wants them to be accessible to everybody. Warren Buffett is not often swayed by what others are doing. He goes his own way, and that has been a source of incredible strength. In annually compounded returns, Berkshire stock has gained 20.8% since 1965, while the S&P 500 as a whole has gained only 9.7% over the same period. To highlight how truly astounding this performance is, one dollar invested in the S&P in 1965 would have grown to `r scales::dollar(1 * (1.097 ^ (2016-1965)))` by the end of 2016, while the same dollar invested in Berkshire stock would have grown to the massive sum of `r scales::dollar(1 * (1.208 ^ (2016-1965)))`!
+
+I've been reading the annual Berkshire letters when they come out for the last few years. One day I'll sit down and read through all of them, but I haven't gotten around to it yet. But while I was reading through his most recent letter last week, I got to thinking. I wondered whether there are any trends in his letters over time, or how strongly his writings are influenced by external market factors. I decided I could probably answer some of these questions through a high-level analysis of the text in his letters, which brings me to the subject of this blog post. In this post I'm going to be performing a sentiment analysis of the text of Warren Buffett's letters to shareholders from 1977 - 2016. A [sentiment analysis](https://en.wikipedia.org/wiki/Sentiment_analysis) is a method of identifying and quantifying the overall sentiment of a particular set of text. 
+
+Sentiment analysis has many use cases, but a common one is to determine how positive or negative a particular text document is, which is what I'll be doing here. For this, I'll be using [bing sentiment analysis](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html), developed by [Bing Liu](https://www.cs.uic.edu/~liub/) of the University of Illinois at Chicago. For this type of sentiment analysis, you first split a text document into a set of distinct words, and then for each word determining whether it is positive, negative, or neutral.  
+
+In the graph below, I show something called the 'Net Sentiment Ratio' for each of Warren Buffett's letters, beginning in 1977 and ending with 2016. The net sentiment ratio tells how positive or negative a particular text is. I'm definining the net sentiment ratio as: 
+
+(Number of Positive Words - Number of Negative Words) / (Number of Total Words)
+
+### Getting & Reading in HTML Letters
+
+```{r, echo=F, error=F, message=F, warning=F}
+urls_77_97 <- paste('http://www.berkshirehathaway.com/letters/', seq(1977, 1997), '.html', sep='')
+html_urls <- c(urls_77_97,
+               'http://www.berkshirehathaway.com/letters/1998htm.html',
+               'http://www.berkshirehathaway.com/letters/1999htm.html',
+               'http://www.berkshirehathaway.com/2000ar/2000letter.html',
+               'http://www.berkshirehathaway.com/2001ar/2001letter.html')
+letters_html <- lapply(html_urls, function(x) read_html(x) %>% html_text())
+
+# Getting & Reading in PDF Letters
+urls_03_16 <- paste('http://www.berkshirehathaway.com/letters/', seq(2003, 2016), 'ltr.pdf', sep = '')
+pdf_urls <- data.frame('year' = seq(2002, 2016),
+                       'link' = c('http://www.berkshirehathaway.com/letters/2002pdf.pdf', urls_03_16))
+download_pdfs <- function(x) {
+  myfile = paste0(x['year'], '.pdf')
+  download.file(url = x['link'], destfile = myfile, mode = 'wb')
+  return(myfile)
+}
+pdfs <- apply(pdf_urls, 1, download_pdfs)
+letters_pdf <- lapply(pdfs, function(x) pdf_text(x) %>% paste(collapse=" "))
+tmp <- lapply(pdfs, function(x) if(file.exists(x)) file.remove(x)) # Clean up directory
+
+# Combine all letters in a dataset
+letters <- do.call(rbind, Map(data.frame, year=seq(1977, 2016), text=c(letters_html, letters_pdf)))
+letters$text <- as.character(letters$text)
+```
+
+### Tidy Letters
+
+```{r}
+tidy_letters <- letters %>% 
+# split text into words
+  unnest_tokens(word, text) %>%                          
+# remove stop words  
+  anti_join(stop_words, by = "word") %>%                  
+# remove numbers  
+  filter(!grepl('[0-9]', word)) %>%                       
+# add sentiment scores to words  
+  left_join(get_sentiments("bing"), by = "word") %>%      
+  group_by(year) %>% 
+# add line numbers  
+  mutate(linenumber = row_number(),                       
+         sentiment = ifelse(is.na(sentiment), 'neutral', sentiment)) %>%
+  ungroup
+```
+
+### Get S&P500 Data Returns
+
+```{r}
+sp500 <- readHTMLTable('http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html',
+                       header = T, which = 1, skip = c(1, seq(92,101))) %>%
+         select(1, 2) %>%
+         `colnames<-`(c("year", "return")) %>%
+         mutate(return = as.numeric(strsplit(as.character(return), split = '%')) / 100)
+```
+
+### Plot the data
+
+```{r plotting, fig.height=13, fig.width=15, fig.align='center', error=F, message=F, warning=F, echo=F}
+# Calculate sentiment score by letter
+letters_sentiment <- tidy_letters %>%  
+  count(year, sentiment) %>%
+  spread(key = sentiment, value = n) %>%
+  mutate(sentiment_pct = (positive - negative) / (positive + negative + neutral)) %>%
+  select(year, sentiment_pct)
+
+ggplot(letters_sentiment, aes(x = year, y = sentiment_pct)) + 
+  geom_bar(aes(fill = sentiment_pct < 0), stat = 'identity') + 
+  geom_text(aes(label = year, hjust = ifelse(sentiment_pct >= 0, -0.15, 1.15)), vjust = 0.5) +
+  scale_fill_manual(guide = F, values = c('#565b63', '#c40909')) +
+  scale_x_reverse(name = '') +
+  scale_y_percent(limits = c(-0.015, 0.045), breaks = c(-0.01, 0, 0.01, 0.02, 0.03, 0.04)) +
+  coord_flip() +
+  labs(y='Net Sentiment Ratio',
+       title='Text Sentiment of Berkshire Hathaway Letters to Shareholders',
+       subtitle='Negative sentiment is strongly associated with recession years') + 
+  theme_ipsum(grid="X") +
+  theme(axis.text.y=element_blank(),
+        axis.ticks.y=element_blank())
+```
+
+The results here show that overall, Warren Buffett's letters have been positive. Over the forty years of letters I'm analyzing here, only 5 show a negative net sentiment score. The five years that do show negative net sentiment scores are closely tied with major negative economic events:
+
+* **1987**: The market crash that happened on October 19th, 1987 (Black Monday) is widely known as the largest single-day percentage decline ever experienced for the Dow-Jones Industrial Average, 22.61% in one day.
+* **1990**: The recession of 1990, triggered by an oil price shock following the United States' invasion of Kuwait, resulted in a notable increase in unemployment.
+* **2001**: Following the 1990s, which represented the longest period of growth in American history, 2001 saw the collapse of the dot-com bubble and associated declining market values, as well as the September 11th attacks.
+* **2002**: The market, already falling in 2001, continued to see declines throughout much of 2002.
+* **2008**: The Great Recession was a large worldwide economic recession, characterized by the International Monetary Fund as the worst global recession since before World War II. Other related events during this period included the financial crisis of 2007-2008 and the subprime mortgage crisis of 2007-2009.
+
+Another interesting topic to examine is which words were actually the strongest contributors to the positive and negative sentiment in the letters. For this exercise, I analyzed the letters as one single text, and present the most common positive and negative words in the graph below.
+
+### Sentiment list
+
+```{r, fig.height = 9, fig.width=15, fig.align='center', error=F, message=F, warning=F, echo=F}
+bing_word_counts <- tidy_letters %>%
+  count(word, sentiment, sort = TRUE) %>%
+  ungroup()
+top_sentiments <- bing_word_counts %>%
+  filter(sentiment != 'neutral') %>%
+  group_by(sentiment) %>%
+  top_n(12, wt = n) %>%
+  mutate(n = ifelse(sentiment == "negative", -n, n)) %>%
+  mutate(word = reorder(word, n))
+ggplot(top_sentiments, aes(x = word, y = n, fill = sentiment)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(guide = F, values = c("#af8dc3", "#7fbf7b")) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(y = "Number of Occurrences",
+       x = '',
+       title = 'Text Sentiment of Berkshire Hathaway Letters to Shareholders',
+       subtitle = 'Most Common Positive and Negative Words') +
+  theme_ipsum(grid="Y") +
+  theme(axis.text.x=element_text(angle = 60, hjust = 1))
+```
+
+The results here are interesting. Many of the most common words--'gain', 'gains', 'loss', 'losses', 'worth', 'liability', and 'debt'--are what we'd expect given the financial nature of these documents. I find the adjectives that make their way into this set particularly interesting, as they give insight into the way Warren Buffett thinks. On the positive side we have 'significant', 'outstanding', 'excellent', 'extraordinary', and 'competitive'. On the negative side there are 'negative', 'unusual', 'difficult', and 'bad'. One interesting inclusion that shows some of the limitations of sentiment analysis is 'casualty', where Mr. Buffett is not referring to death, but to the basket of property and casualty insurance companies that make up a significant portion of his business holdings. 
+
+While the above is interesting, and helps us to highlight the most frequent positive and negative words, it's a bit limited in the number of words we can present before the graph becomes too crowded. To see a larger number of words, we can use a word cloud. The word cloud below shows 400 of the most commonly used words, split by positive and negative sentiment. 
+
+### Create wordcloud
+
+```{r, fig.height = 10, fig.width = 10, fig.align='center', error=F, message=F, warning=F, echo=F}
+tidy_letters %>%
+  filter(sentiment != 'neutral') %>%
+  count(word, sentiment, sort = TRUE) %>%
+  
+# Needed because acast returns a matrix, with comparison.cloud uses
+    reshape2::acast(word ~ sentiment, value.var = "n", fill = 0) %>% 
+  comparison.cloud(colors = c("#af8dc3", "#7fbf7b"), max.words = 400)
+```
+
