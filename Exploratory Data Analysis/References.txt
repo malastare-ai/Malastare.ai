@@ -1,0 +1,13 @@
+References were taken from:
+    
+    
+
+1. www.stackoverflow.com
+
+2. Udacity EDA Course
+
+3. Wikipedida
+
+4. ggplot documentation page
+
+ 
