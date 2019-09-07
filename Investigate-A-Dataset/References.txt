@@ -1,0 +1,9 @@
+References were taken from:
+    
+    
+
+	1. www.stackoverflow.com
+    
+	2. Udacity course on Intro to Data Science
+	3. Kaggle Documentation page on Titanic data set    
+	
