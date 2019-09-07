@@ -1,0 +1,657 @@
+---
+title: "Absenteeism From Work"
+author: "Rihad Variawa"
+date: "13/5/2019"
+output: html_document
+---
+
+Human capital plays a crucial role in any product or service based organization. Being absent for work has consequences.
+
+### Problem Statements
+1. What changes company should bring to reduce the number of absenteeism? 
+2. How much losses every month can we project if same trend of absenteeism continues?
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Install packages if necessary
+list.of.packages <- c("ggplot2", "corrgram", "DMwR", "caret", "randomForest", "unbalanced", "dummies", "e1071", "Information", "MASS", "rpart", "gbm", "ROSE", "xlsx", "DataCombine", "rpart")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+# Load packages
+library(ggplot2)
+library(corrgram)
+library(DMwR)
+library(caret)
+library(randomForest)
+library(unbalanced)
+library(dummies)
+library(e1071)
+library(Information)
+library(MASS)
+library(rpart)
+library(gbm)
+library(ROSE)
+library(xlsx)
+library(DataCombine)
+library(rpart)
+```
+
+### Loading The Data
+
+```{r, comment= ""}
+# Reading the data
+df = read.xlsx('Absenteeism_at_work.xls', sheetIndex = 1)
+```
+
+### The Data
+There are 21 variables in our data in which 20 are independent variables and 1 (Absenteeism time in hours) is dependent variable. Since our target variable is continuous in nature, this is a regression problem. 
+
+### Variables Information: 
+
+1. Individual identification (ID) 
+2. Reason for absence (ICD) - Absences attested by the International Code of Diseases (ICD) stratified into 21 categories as follows: 
+
+    + Certain infectious and parasitic diseases 
+    + Neoplasms 
+    + Diseases of the blood and blood-forming organs and certain disorders involving the immune mechanism 
+    + Endocrine, nutritional and metabolic diseases 
+    + Mental and behavioral disorders 
+    + Diseases of the nervous system 
+    + Diseases of the eye and adnexa
+    + Diseases of the ear and mastoid process 
+    + Diseases of the circulatory system 
+    + Diseases of the respiratory system 
+    + Diseases of the digestive system 
+    + Diseases of the skin and subcutaneous tissue 
+    + Diseases of the musculoskeletal system and connective tissue 
+    + Diseases of the genitourinary system 
+    + Pregnancy, childbirth and the puerperium 
+    + Certain conditions originating in the perinatal period 
+    + Congenital malformations, deformations and chromosomal abnormalities 
+    + Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified 
+    + Injury, poisoning and certain other consequences of external causes 
+    + External causes of morbidity and mortality 
+    + Factors influencing health status and contact with health services and, 7 categories without (CID): patient follow-up (22), medical consultation (23), blood donation (24), laboratory examination (25), unjustified absence (26), physiotherapy (27), dental consultation (28).
+
+3. Month of absence 
+4. Day of the week (Monday (2), Tuesday (3), Wednesday (4), Thursday (5), Friday (6)) 
+5. Seasons (summer (1), autumn (2), winter (3), spring (4)) 
+6. Transportation expense 
+7. Distance from Residence to Work (kilometers) 
+8. Service time 
+9. Age 
+10. Work load Average/day 
+11. Hit target 
+12. Disciplinary failure (yes=1; no=0) 
+13. Education (high school (1), graduate (2), postgraduate (3), master and doctor (4)) 
+14. Son (number of children) 
+15. Social drinker (yes=1; no=0) 
+16. Social smoker (yes=1; no=0) 
+17. Pet (number of pet) 
+18. Weight 
+19. Height 
+20. Body mass index 
+21. Absenteeism time in hours (target)
+
+### Exploratory Data Analysis
+
+Exploratory Data Analysis (EDA) is an approach to analyzing datasets to summarize their main characteristics. In the given data set there are 21 variables and data types of all variables are either float64 or int64. There are 740 observations and 21 columns in our dataset. Missing value is also present in our data.
+
+```{r, comment= ""}
+# Shape of the data
+dim(df)
+```
+
+```{r, comment= ""}
+# Viewing data
+#View(df)
+```
+
+```{r, comment= ""}
+# Structure of the data
+str(df)
+```
+
+From EDA we conclude that there are 10 continuous variable and 11 categorical variable in nature.
+
+```{r, comment= ""}
+# Variable names of the data
+colnames(df)
+# From the above EDA and problem statement categorising data in 2 category "continuous" and "catagorical"
+continuous_vars = c('Distance.from.Residence.to.Work', 'Service.time', 'Age',
+            'Work.load.Average.day.', 'Transportation.expense',
+            'Hit.target', 'Weight', 'Height', 
+            'Body.mass.index', 'Absenteeism.time.in.hours')
+
+catagorical_vars = c('ID','Reason.for.absence','Month.of.absence','Day.of.the.week',
+                     'Seasons','Disciplinary.failure', 'Education', 'Social.drinker',
+                     'Social.smoker', 'Son', 'Pet')
+```
+
+### Missing Data
+
+In statistics, missing data, or missing values, occur when no data value is stored for the variable in an observation. Missing data are a common occurrence and can have a significant effect on the conclusions that can be drawn from the data. If a columns has more than 30% of data as missing value either we ignore the entire column or we ignore those observations.
+
+In the given data the maximum percentage of missing value is 4.189% for body mass index column. So we'll compute missing value for all the columns.
+
+```{r, comment= ""}
+# Creating dataframe with missing values present in each variable
+missing_val = data.frame(apply(df,2,function(x){sum(is.na(x))}))
+missing_val$Columns = row.names(missing_val)
+names(missing_val)[1] =  "Missing_percentage"
+```
+
+```{r, comment= ""}
+# Calculate percentage of missing value
+missing_val$Missing_percentage = (missing_val$Missing_percentage/nrow(df)) * 100
+
+print(missing_val$Missing_percentage)
+```
+
+```{r, comment= ""}
+# Sorting missing_val in Descending order
+missing_val = missing_val[order(-missing_val$Missing_percentage),]
+row.names(missing_val) = NULL
+
+print(missing_val)
+```
+
+```{r, comment= ""}
+# Reordering columns
+missing_val = missing_val[,c(2,1)]
+```
+
+```{r, comment= ""}
+# Saving output result into csv file
+write.csv(missing_val, "Missing_perc_R.csv", row.names = F)
+```
+
+```{r, comment= ""}
+# Plot
+ggplot(data = missing_val[1:28,], aes(x=reorder(Columns, -Missing_percentage),y = Missing_percentage))+
+geom_bar(stat = "identity", fill = "green") + xlab("Variables")+
+ggtitle("Missing data percentage") + theme_bw() + theme_classic() + coord_flip()
+```
+
+```{r, comment= ""}
+# Actual Value = 23
+# Mean = 26.68
+# Median = 25
+# KNN = 23
+
+# Mean Method
+df$Body.mass.index[is.na(df$Body.mass.index)] = mean(df$Body.mass.index, na.rm = T)
+
+# Median Method
+df$Body.mass.index[is.na(df$Body.mass.index)] = median(df$Body.mass.index, na.rm = T)
+
+# kNN Imputation
+df = knnImputation(df, k = 3)
+
+# Checking for missing value
+sum(is.na(df))
+```
+
+### Outliers
+
+We can clearly observe from these probability distributions that most of the variables are skewed. The skew in these distributions can be most likely explained by the presence of outliers and extreme values in the data. One of the other steps of EDA, apart from checking for normality is the presence of outliers.
+
+In this case we use a classic approach of removing outliers. We visualize the outliers using boxplots.
+
+In figure we have plotted the boxplots of the 11 predictor variables with respect to Absenteeism time in hour. A lot of useful inferences can be made from these plots. First as you can see, we have a lot of outliers and extreme values in each of the dataset.
+
+#### BoxPlots - Distribution and Outlier Check
+
+```{r, comment= ""}
+# Boxplot for continuous variables
+for (i in 1:length(continuous_vars))
+{
+  assign(paste0("gn",i), ggplot(aes_string(y = (continuous_vars[i]), x = "Absenteeism.time.in.hours"), data = subset(df)) + 
+           stat_boxplot(geom = "errorbar", width = 0.5) + theme_classic() +
+           geom_boxplot(outlier.colour="red", fill = "green" ,outlier.shape=18,
+                        outlier.size=1, notch=FALSE) +
+           theme(legend.position="bottom")+
+           labs(y=continuous_vars[i],x="Absenteeism.time.in.hours")+
+           ggtitle(paste("Box plot of absenteeism for",continuous_vars[i])))
+}
+```
+
+```{r, comment= ""}
+# Plotting plots together
+gridExtra::grid.arrange(gn1,gn2,ncol=2)
+gridExtra::grid.arrange(gn3,gn4,ncol=2)
+gridExtra::grid.arrange(gn5,gn6,ncol=2)
+gridExtra::grid.arrange(gn7,gn8,ncol=2)
+gridExtra::grid.arrange(gn9,gn10,ncol=2)
+```
+
+From the boxplot, almost all the variables except “Distance from residence to work”, “Weight” and “Body mass index” consists of outliers. We have converted the outliers (data beyond minimum and maximum values) as NA i.e. missing values and fill them by KNN imputation method.
+
+#### Remove outliers using boxplot method
+
+```{r, comment= ""}
+# Loop to remove from all variables
+for(i in continuous_vars)
+{
+  print(i)
+  val = df[,i][df[,i] %in% boxplot.stats(df[,i])$out]
+  # print(length(val))
+  df = df[which(!df[,i] %in% val),]
+}
+```
+
+```{r, comment= ""}
+# Replace all outliers with NA and impute
+for(i in continuous_vars)
+{
+  val = df[,i][df[,i] %in% boxplot.stats(df[,i])$out]
+  # print(length(val))
+  df[,i][df[,i] %in% val] = NA
+}
+```
+
+```{r, comment= ""}
+# Imputing missing values
+df = knnImputation(df,k=3)
+```
+
+### Feature Selection
+
+Prior to performing any type of modeling we need to assess the importance of each predictor variable in our analysis. There is a possibility that many variables in our analysis are not important at all to the problem of class prediction. Selecting subset of relevant columns for the model construction is known as **feature selection.**
+
+We cannot use all the features because some features may be carrying the same information or irrelevant information which can increase overheads. To reduce overheads we adopt feature selection technique to extract meaningful features out of data. This in turn helps us to avoid the problem of multi collinearity. 
+
+For this project I've selected Correlation Analysis for numerical variable and ANOVA (Analysis of variance) for categorical variable.
+
+```{r, comment= ""}
+# Correlation plot 
+corrgram(df[,continuous_vars], order = F,
+         upper.panel=panel.pie, text.panel=panel.txt, main = "Correlation Plot")
+```
+
+```{r, comment= ""}
+# ANOVA test for categprical variable
+summary(aov(formula = Absenteeism.time.in.hours~ID,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Reason.for.absence,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Month.of.absence,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Day.of.the.week,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Seasons,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Disciplinary.failure,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Education,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Social.drinker,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Social.smoker,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Son,data = df))
+summary(aov(formula = Absenteeism.time.in.hours~Pet,data = df))
+```
+
+```{r, comment= ""}
+# Dimension reduction
+df = subset(df, select = -c(Weight))
+```
+
+### Feature Scaling
+
+A method used to standardize the range of independent variables or features of data. In data processing, it's also known as data normalization and is generally performed during the data pre-processing step. Since the range of values of raw data varies widely, in some machine learning algorithms, objective functions will not work properly without normalization. 
+
+For example, the majority of classifiers compute the distance between two points by the Euclidean distance. If one of the features has a broad range of values, the distance will be governed by this particular feature. Therefore, the range of all features should be normalized so that each feature contributes approximately proportionately to the final distance. Since our data is not uniformly distributed we'll use Normalization as Feature Scaling Method.
+
+```{r, comment= ""}
+# Normality check
+hist(df$Absenteeism.time.in.hours)
+```
+
+```{r, comment= ""}
+# Updating the continuous and catagorical variable
+continuous_vars = c('Distance.from.Residence.to.Work', 'Service.time', 'Age',
+                    'Work.load.Average.day.', 'Transportation.expense',
+                    'Hit.target', 'Height', 
+                    'Body.mass.index')
+```
+
+```{r, comment= ""}
+catagorical_vars = c('ID','Reason.for.absence','Disciplinary.failure', 
+                     'Social.drinker', 'Son', 'Pet', 'Month.of.absence', 'Day.of.the.week', 'Seasons',
+                     'Education', 'Social.smoker')
+```
+
+```{r, comment= ""}
+# Normalization
+for(i in continuous_vars)
+{
+  print(i)
+  df[,i] = (df[,i] - min(df[,i]))/(max(df[,i])-min(df[,i]))
+}
+```
+
+```{r, comment= ""}
+# Creating dummy variables for categorical variables
+library(mlr)
+df = dummy.data.frame(df, catagorical_vars)
+```
+
+### Model Building
+
+```{r, comment= ""}
+# Divide data into train and test set using stratified sampling method
+set.seed(123)
+train.index = sample(1:nrow(df), 0.8 * nrow(df))
+train = df[ train.index,]
+test  = df[-train.index,]
+```
+
+#### Decision tree for classification
+
+```{r, comment= ""}
+# Develop Model on training data
+fit_DT = rpart(Absenteeism.time.in.hours ~., data = train, method = "anova")
+```
+
+```{r, comment= ""}
+# Summary of DT model
+summary(fit_DT)
+```
+
+```{r, comment= ""}
+#  Write rules into disk
+write(capture.output(summary(fit_DT)), "Rules.txt")
+```
+
+```{r, comment= ""}
+# Predict training data
+pred_DT_train = predict(fit_DT, train[,names(test) != "Absenteeism.time.in.hours"])
+```
+
+```{r, comment= ""}
+# Predict testing data
+pred_DT_test = predict(fit_DT,test[,names(test) != "Absenteeism.time.in.hours"])
+```
+
+```{r, comment= ""}
+# For training data 
+print(postResample(pred = pred_DT_train, obs = train[,107]))
+```
+
+```{r, comment= ""}
+# For testing data 
+print(postResample(pred = pred_DT_test, obs = test[,107]))
+```
+
+#### Linear Regression
+
+```{r, comment= ""}
+set.seed(123)
+```
+
+```{r, comment= ""}
+# Develop Model on training data
+fit_LR = lm(Absenteeism.time.in.hours ~ ., data = train)
+```
+
+```{r, comment= ""}
+# Predict training data
+pred_LR_train = predict(fit_LR, train[,names(test) != "Absenteeism.time.in.hours"])
+```
+
+```{r, comment= ""}
+# Predict testing data
+pred_LR_test = predict(fit_LR,test[,names(test) != "Absenteeism.time.in.hours"])
+```
+
+```{r, comment= ""}
+# For training data 
+print(postResample(pred = pred_LR_train, obs = train[,107]))
+```
+
+```{r, comment= ""}
+# For testing data 
+print(postResample(pred = pred_LR_test, obs = test[,107]))
+```
+
+#### Random Forest
+
+```{r, comment= ""}
+set.seed(123)
+```
+
+```{r, comment= ""}
+# Develop Model on training data
+fit_RF = randomForest(Absenteeism.time.in.hours~., data = train)
+```
+
+```{r, comment= ""}
+# Predict training data
+pred_RF_train = predict(fit_RF, train[,names(test) != "Absenteeism.time.in.hours"])
+```
+
+```{r, comment= ""}
+# Predict testing data
+pred_RF_test = predict(fit_RF,test[,names(test) != "Absenteeism.time.in.hours"])
+```
+
+```{r, comment= ""}
+# For training data 
+print(postResample(pred = pred_RF_train, obs = train[,107]))
+```
+
+```{r, comment= ""}
+# For testing data 
+print(postResample(pred = pred_RF_test, obs = test[,107]))
+```
+
+#### XGBoost
+
+```{r, comment= ""}
+set.seed(123)
+```
+
+```{r, comment= ""}
+# Develop Model on training data
+fit_XGB = gbm(Absenteeism.time.in.hours~., data = train, n.trees = 500, interaction.depth = 2)
+```
+
+```{r, comment= ""}
+# Predict training data
+pred_XGB_train = predict(fit_XGB, train[,names(test) != "Absenteeism.time.in.hours"], n.trees = 500)
+```
+
+```{r, comment= ""}
+# Predict testing data
+pred_XGB_test = predict(fit_XGB,test[,names(test) != "Absenteeism.time.in.hours"], n.trees = 500)
+```
+
+```{r, comment= ""}
+# For training data 
+print(postResample(pred = pred_XGB_train, obs = train[,107]))
+```
+
+```{r, comment= ""}
+# For testing data 
+print(postResample(pred = pred_XGB_test, obs = test[,107]))
+```
+
+### Dimensionality Reduction using PCA
+
+Principal component analysis is a method of extracting important variables (in the form of components) from a large set of variables available in a dataset. It extracts low dimensional sets of features from a high dimensional dataset with a motive to capture as much information as possible. With fewer variables, visualization also becomes much more meaningful. 
+
+PCA is more useful when dealing with 3 or higher dimensional data. After creating dummy variable of categorical variables the shape of our data became 107 columns and 714 observations, this high number of columns leads to bad accuracy.
+
+```{r, comment= ""}
+# Principal Component Analysis
+prin_comp = prcomp(train)
+```
+
+```{r, comment= ""}
+# Compute standard deviation of each principal component
+std_dev = prin_comp$sdev
+```
+
+```{r, comment= ""}
+# Compute variance
+pr_var = std_dev^2
+```
+
+```{r, comment= ""}
+# Proportion of variance explained
+prop_varex = pr_var/sum(pr_var)
+```
+
+```{r, comment= ""}
+# Cumulative screen plot
+plot(cumsum(prop_varex), xlab = "Principal Component",
+     ylab = "Cumulative Proportion of Variance Explained",
+     type = "b")
+```
+
+```{r, comment= ""}
+# Add training set with principal components
+train.data = data.frame(Absenteeism.time.in.hours = train$Absenteeism.time.in.hours, prin_comp$x)
+```
+
+```{r, comment= ""}
+# From the above plot selecting 45 components since it explains almost 95+ % data variance
+train.data =train.data[,1:45]
+```
+
+```{r, comment= ""}
+# Transforming test into PCA
+test.data = predict(prin_comp, newdata = test)
+test.data = as.data.frame(test.data)
+```
+
+```{r, comment= ""}
+# Selecting the first 45 components
+test.data=test.data[,1:45]
+```
+
+### Model Development after Dimensionality Reduction
+
+After a thorough preprocessing we'll be using some regression models on our processed data to predict the target variable. Following are the models which we have built – 
+
+#### Decision tree for classification
+
+A decision tree is a decision support tool that uses a tree-like graph or model of decisions and their possible consequences, including chance event outcomes, resource costs, and utility. Each branch connects nodes with “and” and multiple branches are connected by “or”. It can be used for classification and regression.It is a supervised machine learning algorithm. 
+
+Accept continuous and categorical variables as independent variables. Extremely easy to understand by the business users.
+
+```{r, comment= ""}
+# Develop Model on training data
+fit_DT = rpart(Absenteeism.time.in.hours ~., data = train.data, method = "anova")
+```
+
+```{r, comment= ""}
+# Predict training data
+pred_DT_train = predict(fit_DT, train.data)
+```
+
+```{r, comment= ""}
+# Predict testing data
+pred_DT_test = predict(fit_DT,test.data)
+```
+
+```{r, comment= ""}
+# For training data 
+print(postResample(pred = pred_DT_train, obs = train$Absenteeism.time.in.hours))
+```
+
+```{r, comment= ""}
+# For testing data 
+print(postResample(pred = pred_DT_test, obs = test$Absenteeism.time.in.hours))
+```
+
+#### Linear Regression
+
+Linear Regression is one of the statistical methods of prediction. It is applicable only on continuous data. To build any model we have some assumptions to put on data and model. Here are the assumptions to the linear regression model.
+
+```{r, comment= ""}
+# Develop Model on training data
+fit_LR = lm(Absenteeism.time.in.hours ~ ., data = train.data)
+```
+
+```{r, comment= ""}
+# Predict training data
+pred_LR_train = predict(fit_LR, train.data)
+```
+
+```{r, comment= ""}
+# Predict testing data
+pred_LR_test = predict(fit_LR,test.data)
+```
+
+```{r, comment= ""}
+# For training data 
+print(postResample(pred = pred_LR_train, obs = train$Absenteeism.time.in.hours))
+```
+
+```{r, comment= ""}
+# For testing data 
+print(postResample(pred = pred_LR_test, obs =test$Absenteeism.time.in.hours))
+```
+
+#### Random Forest
+
+Random Forest is an ensemble technique that consists of many decision trees. The idea behind random forest is to build n number of trees to have more accuracy in the dataset. It is called random forest as we are building n no. of trees randomly. 
+
+In other words, to build the decision tree it selects randomly n no of variables and n no of observations to build each decision tree. It means to build each decision tree on random forest we are not going to use the same data.
+
+```{r, comment= ""}
+# Develop Model on training data
+fit_RF = randomForest(Absenteeism.time.in.hours~., data = train.data)
+```
+
+```{r, comment= ""}
+# Predict training data
+pred_RF_train = predict(fit_RF, train.data)
+```
+
+```{r, comment= ""}
+# Predict testing data
+pred_RF_test = predict(fit_RF,test.data)
+```
+
+```{r, comment= ""}
+# For training data 
+print(postResample(pred = pred_RF_train, obs = train$Absenteeism.time.in.hours))
+```
+
+```{r, comment= ""}
+# For testing data 
+print(postResample(pred = pred_RF_test, obs = test$Absenteeism.time.in.hours))
+```
+
+#### XGBoost
+
+Gradient boosting is a machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models, typically decision trees.
+
+It builds the model in a stage-wise fashion like other boosting methods do, and it generalizes them by allowing optimization of an arbitrary differentiable loss function.
+
+```{r, comment= ""}
+# Develop Model on training data
+fit_XGB = gbm(Absenteeism.time.in.hours~., data = train.data, n.trees = 500, interaction.depth = 2)
+```
+
+```{r, comment= ""}
+# Predict training data
+pred_XGB_train = predict(fit_XGB, train.data, n.trees = 500)
+```
+
+```{r, comment= ""}
+# Predict testing data
+pred_XGB_test = predict(fit_XGB,test.data, n.trees = 500)
+```
+
+```{r, comment= ""}
+# For training data 
+print(postResample(pred = pred_XGB_train, obs = train$Absenteeism.time.in.hours))
+```
+
+```{r, comment= ""}
+# For testing data 
+print(postResample(pred = pred_XGB_test, obs = test$Absenteeism.time.in.hours))
+```
+
+Root Mean Square Error (RMSE) is the standard deviation of the residuals (prediction errors). Residuals are a measure of how far from the regression line data points are, RMSE is a measure of how spread out these residuals are. In other words, it tells you how concentrated the data is around the line of best fit. Whereas R-squared is a relative measure of fit, RMSE is an absolute measure of fit. As the square root of a variance, RMSE can be interpreted as the standard deviation of the unexplained variance, and has the useful property of being in the same units as the response variable. Lower values of RMSE and higher value of R-Squared Value indicate better fit.
+
+From the observation of all RMSE Value and R-Squared Value we have concluded that Linear Regression Model  has minimum value of RMSE and it’s R-Squared Value is also maximum (i.e. 1).
+The RMSE value of Testing data and Training does not differs a lot, implies that it is not the case of overfitting.
+
