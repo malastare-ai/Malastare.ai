@@ -1,0 +1,38 @@
+
+.dimple-line {
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: dash 5s linear forwards;
+}
+
+@keyframes dash {
+  to {
+      stroke-dashoffset: 0;
+  }
+}
+
+#blink_text {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
+
+.info {
+  border-width: 0.1px;
+  border-style:solid;
+  border-color:black;
+  border-radius: 10px;
+  width: 60%;
+  float: top;
+  margin-top: 1%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.circle {
+
+	opacity: 0.6;
+}

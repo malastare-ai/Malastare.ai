@@ -1,0 +1,30 @@
+.dimple-line {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
+    animation: dash 5s linear forwards;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+#blink_text {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
+
+#info {
+
+	color: #800000;
+}
+
+.circle {
+
+	opacity: 0.6;
+}
