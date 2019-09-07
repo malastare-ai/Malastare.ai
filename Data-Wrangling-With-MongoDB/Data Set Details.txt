@@ -1,0 +1,14 @@
+Mumbai Data Set
+===============
+
+    Source : https://s3.amazonaws.com/metro-extracts.mapzen.com/mumbai_india.osm.bz2
+    
+
+About the Area: 
+================
+Mumbai ( also known as Bombay, the official name until 1995) is the capital city of the Indian state of Maharashtra. It is the most populous city in India and the ninth most populous agglomeration in the world, with an estimated city population of 18.4 million. Along with the neighbouring regions of the Mumbai Metropolitan Region, it is one of the most populous urban regions in the world and the seсond most populous metropolitan area in India, with a population of 20.7 million as of 2011. Mumbai lies on the west coast of India and has a deep natural harbour. In 2009, Mumbai was named an alpha world city.It is also the wealthiest city in India,and has the highest GDP of any city in South, West, or Central Asia.Mumbai has the highest number of billionaires and millionaires among all cities in India.
+
+Reason for choice:
+=================
+
+Mumbai data set was one of the few cities in India that had a fairly large data set, although it was much smaller that those of other cities accross the world. I wanted to explore some place within my country and there cant be a better place than Mumbai because of the diverse nature of people who live there and a large population makes the data more challenging.

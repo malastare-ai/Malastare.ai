@@ -1,0 +1,6 @@
+References were taken from:
+    
+    1. www.stackoverflow.com
+    2. Udacity course on Data Wrangling with MongoDB
+    3. Openstreetmap wiki page
+    4. www.tagfinder.herokuapp.com
