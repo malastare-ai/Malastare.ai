@@ -1,0 +1,5 @@
+References were taken from the following sources:
+	1. Udacity Intro to Machine Learning course
+	2. scikit-learn documentation
+	3. Udacity DAND's 'slack' group
+	4. stackoverflow.com
