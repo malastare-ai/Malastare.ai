@@ -1,0 +1,141 @@
+---
+title: "Descriptive Analysis"
+author: "Rihad Variawa"
+date: "5/6/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# install packages if necessary
+list.of.packages <- c("ggplot2", "reshape", "ggthemes")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+# load packages
+library(ggplot2)
+library(reshape)
+library(ggthemes)
+```
+
+```{r setup, include=FALSE}
+stroopdata <- read.csv("stroopdata.csv")
+stroopdata$index <- row.names(stroopdata)
+melted_stroop <- melt(stroopdata)
+```
+
+## Questions For Investigation
+
+### 1. What is our independent variable? What is our dependent variable?
+
+* Independent variable: color congruency
+* Dependent: time to name the ink colors
+
+### 2. What is an appropriate set of hypotheses for this task? What kind of statistical test do you expect to perform? Justify your choices.
+
+*Null Hypothesis:*
+
+$H_0 = \mu_i - \mu_c = 0$
+There is no significant difference between the recognition time of the words with a congruent words condition and words with an incongruent words condition.
+
+*Alternative Hypothesis:*
+
+$H_1 = \mu_i - \mu_c \neq 0$: There is a significant difference between the recognition time of the words with an congruent words condition and words with an incongruent words condition.
+
+Explanation of the symbols:
+
+* $\mu_i$: mean of the recognition time of words with an incongruent word condition.
+* $\mu_c$: mean of the recognition time of words with a congruent word condition.
+
+-----
+
+I would use a dependent samples two-tailed t-test for the following reasons:
+
+* There are no population parameters available, so we do not know the population standard deviation.
+* There are less than 30 samples.
+* We assume that the distribution is Gaussian.
+* The dependent variable is continuous.
+* We are not assuming that the measured time is faster or slower, but different.
+
+### 3. Report some descriptive statistics regarding this dataset. Include at least one measure of central tendency and at least one measure of variability.
+
+#### Mean
+
+Congruent: `r round(mean(stroopdata$Congruent),2)`
+
+Incongruent: `r round(mean(stroopdata$Incongruent),2)`
+
+#### Median
+
+Congruent: `r round(median(stroopdata$Congruent),2)`
+
+Incongruent: `r round(median(stroopdata$Incongruent),2)`
+
+#### Standard deviation
+
+Congruent: `r round(sd(stroopdata$Congruent),2)`
+
+Incongruent: `r round(sd(stroopdata$Incongruent),2)`
+
+### 4. Provide one or two visualizations that show the distribution of the sample data. Write one or two sentences noting what you observe about the plot or plots.
+
+```{r, comment= ""}
+ggplot(melted_stroop, aes(x=index, y=value, color=variable)) +
+  geom_point(shape=16, size=3) +
+  labs(title = "Measured time", x = "Person", y = "Time") +
+  theme_classic()
+```
+
+This scatterplot shows the measured time for incongruent words (green dots) is higher than the time for congruent words (red dots) for every single test person.
+
+```{r, comment= ""}
+ggplot(melt(stroopdata), aes(x=variable, y=value, fill=variable)) +
+  geom_boxplot(aes(fill=variable)) +
+  labs(title = "Measured time", x = "", y = "") +
+   guides(fill=FALSE) +
+  theme_classic()
+```
+
+The boxplot also shows the difference between the two types. For the incongruent results you can also see two outliers at the top.
+
+### 5. Now, perform the statistical test and report your results. What is your confidence level and your critical statistic value? Do you reject the null hypothesis or fail to reject it? Come to a conclusion in terms of the experiment task. Did the results match up with your expectations?
+
+* Confidence level: 95%
+* t-critical = 1.71
+* dF = 23
+
+* Point estimate:
+
+```{r, comment= ""}
+P = round(mean(stroopdata$Incongruent - stroopdata$Congruent),2)
+print(P)
+```
+
+* S:
+
+```{r, comment= ""}
+stroopdata$D = stroopdata$Incongruent - stroopdata$Congruent
+stroopdata$diff = stroopdata$D - mean(stroopdata$D)
+stroopdata$diff = stroopdata$diff**2
+S <- round(sqrt(sum(stroopdata$diff)/23),2)
+
+print(S)
+```
+
+* t-critical:
+
+```{r, comment= ""}
+SEM = S/sqrt(24)
+t_stat <- round(P/SEM,2)
+print(t_stat)
+```
+
+t-statistic > t-critical
+
+**Conclusion:** t-statistic is larger than t-critical. Therefore, we reject the null hypothesis, which says that there is no significant difference between the results for congruent and incongruent words. This meets my expectations as I found it way more challenging to name the colours when the words were incogruent.
+
+### 6. Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect? Some research about the problem will be helpful for thinking about these two questions!
+
+I think the main reason for the slower response is that we proccess words subconsciously, while we have to concentrate on the task to name a specific colour. This slows down the recognition and might even be slower when words and colours contradict each other.
+
+A similar test would be to decide which digit is larger when the digits are written in different sizes. So, if a "3" is written larger than a "7" test takers might initially assume that 7 is larger.
