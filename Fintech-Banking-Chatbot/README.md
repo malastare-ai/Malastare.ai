@@ -58,10 +58,6 @@ python -m rasa_nlu.server -c config_spacy.json
 
 Then run the App.py to deploy the chatbot
 
-### Demo
-
-[![Alt text](https://img.youtube.com/vi/QRa4cQv-xoQ/0.jpg)](https://www.youtube.com/watch?v=QRa4cQv-xoQ)
-
 ### Built using
 
 * [Python](https://www.python.org/) - The HTTP API was built in python
