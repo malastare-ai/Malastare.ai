@@ -40,7 +40,7 @@ You need to have python and flask installed on your system to run it.
 
 ### Installation
 Follow the link to get the step by step guide to install the the Rasa Nlu and how to run a the server. 
-Also select the training data from  "bankingchatbotabc/AI-engine/data/" directory. "testData(2).json" is the most updated dataset.
+Also select the training data from  "Fintech-Banking-Chatbot/ai-engine/data/" directory. "testData(2).json" is the most updated dataset.
 
 https://rasa.com/docs/nlu/installation/
 
