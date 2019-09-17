@@ -56,7 +56,11 @@ To run the server
 python -m rasa_nlu.server -c config_spacy.json
 ```
 
-Then run the App.py to deploy the chatbot
+Then run the app.py to deploy the chatbot
+
+```
+python app.py
+```
 
 ### Built using
 
