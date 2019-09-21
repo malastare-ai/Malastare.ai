@@ -8,7 +8,7 @@ Received: 17 June 2019; Accepted: 27 July 2019; Published: 16 August 2019
 
 ## Fund management embrace machine learning
 
-ARTIFICIAL intelligence (AI) has already changed some activities, including parts of finance like fraud prevention, but not yet fund management and stock-picking. That seems odd: machine learning, a subset of AI that excels at finding patterns and making predictions using reams of data, looks like an ideal tool for the business. Yet well-established “quant” hedge funds in London or New York are often sniffy about its potential. In San Francisco, however, where machine learning is so much part of the furniture the term features unexplained on roadside billboards, a cluster of upstart hedge funds has sprung up in order to exploit these techniques.
+Artificial intelligence (AI) has already changed some activities, including parts of finance like fraud prevention, but not yet fund management and stock-picking. That seems odd: machine learning, a subset of AI that excels at finding patterns and making predictions using reams of data, looks like an ideal tool for the business. Yet well-established “quant” hedge funds in London or New York are often sniffy about its potential. In San Francisco, however, where machine learning is so much part of the furniture the term features unexplained on roadside billboards, a cluster of upstart hedge funds has sprung up in order to exploit these techniques.
 
 ## Business overview
 
