@@ -30,6 +30,34 @@ All the codes run on Python 3.7.0
 
 ## Conflicts of Interest: The practitioner declare no conflict of interest.
 
+
+# Sharing Secure Data: A Disruption To Fraud Prevention
+The alliances across partner banks can help prevent money laundering and fraud. Referring to Accenture’s new report [Maximize Collaboration Through Secure Data Sharing,](https://www.accenture.com/us-en/insights/digital/maximize-collaboration-secure-data-sharing) 
+
+Sharing of data can provide more insight and in turn, support the identification of potentially fraudulent transactions, but this can be impossible due to banking confidentiality laws and other legislation. Technologies such as Secure *Multi-Party Computation* (MPC) and *Homomorphic Encryption* would allow the banks to answer questions on a virtual, shared dataset without the need to share the actual data with each other. 
+
+Accenture found that 36 percent of executives indicate that the number of organizations they partnered with had doubled or more in the last two years. In addition to this, 71 percent anticipate that the volume of data exchanged with ecosystems will increase. 
+
+**The reality is that the risk of sharing data is disproportionately higher than the potential value of sharing data, even in the presence of trust.** Research suggests that companies experience a near 10 percent decline in revenue for six month after a large, public data breach. Further, it can take two years to recover that lost revenue, resulting in the loss of competitive advantage, but these **Privacy Preserving Techniques** (PPC) are assured to disrupt the enterprise data exchange space.
+
+### #According to the report, MPC allows a group to share the benefits of combining their data to create useful outputs while at the same time, ensuring that the actual source data is kept private from each other. 
+
+*The report reads: “These technologies support use cases that allow groups of companies to work together to generate outcomes or insights they cannot get alone but where they are not willing or able to share their data directly with each other. It can also help with concerns around input privacy, where each company wants to be sure they are not exposing anything other than what they intend to share.*
+
+> A simple illustration for MPC is the Millionaire’s Problem: two millionaires want to understand who is the richest, but neither want to share their actual net worth with each other nor trust a third party. An MPC scheme could allow a partial calculation of the answer to be done by both millionaires which, when combined, would provide an answer, but on their own would be meaningless.
+
+**Homomorphic Encryption,** on the other hand, allows for computation on encrypted data without the need to decrypt it. This mechanism allows complete secrecy of the data to be maintained as the data will not be decrypted while it is outside the control of the data owner. The results of processing are also kept private (even from the data processor) so the risks of unintentional privacy leakage as a result of processing are mitigated.
+
+On this point, insurance companies can analyze user’s sensitive information **(including health data and net worth)** without ever storing this sensitive information in their systems. This is important as it reduces liability risks while allowing for accurate and fine-grained risk modeling. In the same way, since the data is never exposed, we imagine banks being able to partner with a bigger ecosystem of nontraditional partners like retailers, entertainment, telecoms companies.
+
+In this increasingly Ai-driven world, organizations are realizing the importance of partnerships and how these ecosystems can support new growth opportunities. However, while the benefits of sharing data are clear, issues of trust, security and fear of losing competitive advantage continue to prevent companies from collaborating. Data sharing techniques such as **MPC and Homomorphic Encryption,** as well as others referred to as *Trusted Execution Environment* (Secure Enclave) and *Differential Privacy,* will allow data to be analyzed between parties without exposing aspects of it, or any of it. 
+
+Banks, lenders, government agencies, etc. should query against encrypted data so they are shielded from the liability of storing personal private information. This also would protect the confidentiality of customer data preventing accidental or malicious disclosure of confidential information.
+
+Alongside this, Accenture report mentioned: *“Beyond the traceability and control of data considerations, PPC technologies enable partners to work in a decentralized way, giving them the opportunity to jointly investigate common or shared business issues. Companies are also able to apply Ai and improved analysis methods to datasets that they had not previously had access to. This means collaborations with external parties—even competitors—are now possible, and in some cases, well underway.” *
+
+The report continues: *“PPC techniques are on the cusp of a new phase of industry adoption thanks to the alignment of technological capabilities with market needs. The potential opportunity has led to the creation of a rapidly evolving and heavily funded start-up ecosystem. And innovative enterprises and institutions are investing in and experimenting with these techniques to understand the art of the possible.”*
+
 ### Our 6 Step Problem Solving Roadmap
 
 Gain the best results in solving complex and important problems. We-Do!
