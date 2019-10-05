@@ -64,7 +64,28 @@ patterns in the time series so as to predict the output.
 
 ### Conflicts of Interest: The practitioner declare no conflict of interest.
 
-## Solution architecture
+# Climate Action With Ai
+Climate action is the latest buzzword among industry circles since the many *International Panel on Climate Change* (IPCC) reports and the recent UN Climate Summit in New York City *(October 2019).* Greta Thunberg grabbed the headlines, but industrialists are all wondering: How can we move swiftly and effectively to reduce carbon emissions? **How can we use Ai and other exponential technologies to do the job better, faster and cheaper?**
+
+Companies are located in cities. They consume 80% of energy and emit 70%+ of carbon, so we'll win or lose the carbon battle in the cities. Fortunately, cities can move faster than national governments and, as energy buyers, they can directly negotiate energy types and pricing, giving them enormous economic clout. Over half of the world's population and 80% of the $80 trillion global GDP, or about $65 trillion, is concentrated in cities so they offer the best business opportunities.
+
+**How can cities, businesses, nonprofits and schools use Ai for climate programs?** From a planning perspective, Ai is a super powerful tool, one that enables trained users to search, analyze and forecast data trends faster, better and cheaper. Its effectiveness relies upon the wisdom of policymakers and the accuracy of the data; otherwise, it's "garbage in, garbage out." Moreover, social bias is locked into datasets and Ai algorithms since they reflect data from existing practices and the coders are usually white men. Efforts to de-bias data and Ai programs to make them reflective of the broader society should be part of a robust ethical Ai program open to academic and public scrutiny.
+
+As for practical Ai climate applications, here are the most valuable from business and planning perspectives:
+
+**Climate Impact Forecasting:** All city officials, businesses, citizens and communities are worried about the physical and economic impact of climate disasters since they can quickly dwarf expectations. Last August, a 5.0 typhoon struck Japan, shutting down much of the country for an entire week, with huge damage, including loss of lives, injuries, damaged infrastructure and economic stoppages, which climate experts had not expected for many decades. For a $5 trillion economy, one week of lost economic activity alone can easily surpass $100 billion, not including loss of life, productivity and physical damage. Now, insurance companies, builders and cities are scrambling to revise their climate forecasts and insurance actuarial tables to reflect the new climate realities. Better Ai climate forecasting tools would be immensely valuable.
+
+**Climate Policies & Programs:** What climate policies and programs should be developed based on Ai climate forecasts? What are the options? How can they be simulated, calculated and visualized for policymakers? What are the tradeoffs? For example, should New York City, Tokyo and Osaka build seawalls like Amsterdam or would it be cheaper and more effective to build on stilts and mounds in order to prepare for flooding and sea rise? Given projected sea rise, is it better to retreat or rebuild? How can landowners and homeowners be helped? What will be the sales and property tax losses during and after recovery?
+
+**Climate Training:** How can government officials, businesses, students, and societies be trained on climate issues more effectively using Ai, VR/AR, IoT and blockchain? How could these exponential technologies be taught through effective online and in-class courses? What are practical use cases, business models, metrics and ROI models being used by innovators? Where are the future climate career and job opportunities? How can Ai develop real-time climate job listings?
+
+**Resilient City Planning:** Smart cities have been all the rage for the past few years, but they now need to consider climate disasters, such as more intense hurricanes/typhoons, forest fires, droughts, mudslides, flooding and sea rise. Ai would be extremely valuable for integrating smart city data with climate impact forecasting, policymaking, training, disaster management and recovery, especially using VR/AR, IoT, blockchain and cloud services.
+
+## Conclusion
+At this point, we have more questions than answers about the potential uses of Ai for climate and disaster impact forecasting and recovery, which will be a burgeoning new industry since so many lives and livelihoods rely upon accurate forecasting and effective policies and programs. As we learned with the 2008 housing market crash, often just asking the right questions and thinking through possible policies to avoid disasters are worth a fortune to everyone involved. Forewarned is forearmed.
+
+
+### Solution architecture
 
 The experiment is conducted on a Ubuntu DSVM. 
 
