@@ -14,7 +14,7 @@ Executives at the bank decided to invest in machine learning, which applies soph
 
 Malastare-AI worked closely with CredX’s credit and risk management teams to explore the data on hand and began training CredX modelers in machine learning skills. The teams looked at 26 times more data than CredX had used previously and ended up training ML models on triple the number of variables the bank had been using. The result was a handful of machine learning credit models that could replace the bank’s tens  of linear regression models across five of the bank’s product lines. Each of CredX’s traditional models had taken up to 6 months to create, validate and test before going into production. The team’s new goal is to shrink that time to under three months for ML underwriting.
 
-Galiph Dante, head of credit and model risk management at CredX as responsible for credit models says “ ML experience with Zest is an exciting journey and both sides have a lot to learn and benefit from each other.”
+Galiph Dante, head of credit and model risk management at CredX as responsible for credit models says “ ML experience with Malastare is an exciting journey and both sides have a lot to learn and benefit from each other.”
 
 “Our partnership with Malastare has helped us unlock a huge amount of value from our investment in digital transformation,” says Hacan Salyers, head of retail credit and analytics at CredX. “By switching over to ML for credit underwriting, CredX can find more good borrowers with no added risk and react faster to changes in the market.”
 
@@ -25,42 +25,4 @@ The Malastare-AI-CredX partnership includes a strong skill-building component in
 “Digital banking is core to CredX’s lead in the market. AI-powered underwriting will help support our profitable growth for years to come,” says CredX’s Hacan Salyers. “Malastare machine learning was crucial in maximizing the value of our investment.”
 
 ## Conflicts of Interest: The practitioners declare no conflict of interest.
-
-Our 6 Step Problem Solving Roadmap
-
-
-Gain the best results in solving complex and important problems. We-Do!
-
-### Step 1: Identify the problem
-At this stage, you are defining the scope of the problem you have to solve. Points to consider at this stage include: problem origin (if known), problem impact (e.g. on customers, on staff or reputation) and timeline to solve the problem.
-
-Note: the time factor is important to consider because it influences how much time you can dedicate to thinking through the problem. In extreme conditions, you may run through this entire process in less than an hour.
-
-### Step 2: Structure the problem
-Putting the problem into a clear structure for analysis is one of the great insights we bring to our work. What does it mean to structure a problem? It means identifying the important issues.
-
-### Step 3: Develop solutions
-According to research by Chip and Dan Heath in their book “Decisive,” most managers develop only two solutions: “Do x or do not do X.” It will come as no surprise that this approach rarely delivers success. Binary choices tend to have a 50% or greater failure rate. On the other hand, fifty solutions is probably too many to handle especially if you are working through a problem solving process on your own.
-
-The Solution Sweet Spot: developing three to five solutions is usually enough.
-
-### Step 4: Select a solution to the problem
-With a list of possible solutions on the table, it is now time to decide. 
-Note: For large scale problem solving, you may have to follow an organizational template or policy if your solution requires a large amount of money.
-
-### Step 5: Implement a solution
-In this step, you put the solution into action. Implementation may become a project of its own. In that case, you have a full toolkit of project management tools and processes to call on.
-
-Tip: If you are solving a novel problem, stay humble about your solution. It may not work or there may be a better way.
-
-### Step 6: Monitor for success
-Monitoring the solution and situation is a key step to ensure the problem is truly solved. Failing to follow up – especially if you have assigned the task to someone else – is a recipe for disaster. 
-
-Monitoring is also important because problems are sometimes symptom of a deeper problem.
-
-Tip: Increase the quantity and frequency of reporting when you are working through an important problem.
-
-
-
-
 
