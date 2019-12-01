@@ -90,7 +90,7 @@ Our Problem Solving Roadmap
 
 <img src="./image_gallery/bs.png" width="850" height="400"/>
 
-<img src="./images_gallery/logo.png"/>
+<img src="./image_gallery/logo.png"/>
 
 ### License
 
