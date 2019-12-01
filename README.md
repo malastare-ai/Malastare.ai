@@ -90,6 +90,8 @@ Our Problem Solving Roadmap
 
 <img src="./image_gallery/bs.png" width="850" height="400"/>
 
+<img src="./images_gallery/logo.png"/>
+
 ### License
 
 These project are licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
