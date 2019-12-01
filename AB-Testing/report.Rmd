@@ -9,6 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<img src="./images_gallery/logo.png"/>
+
+
 ## Experiment Design
 
 There are two options a user can choose for Udacity courses. The first is a "free trial", the second is "access course materials". When they click on the first option, they will be asked to enter their payment data and enrolled in a 14 days trial period. After that, they will be charged until they cancel their subscription.

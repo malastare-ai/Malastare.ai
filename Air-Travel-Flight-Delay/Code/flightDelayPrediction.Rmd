@@ -8,6 +8,8 @@ output:
   pdf_document: default
 ---
 
+<img src="./images_gallery/logo.png"/>
+
 ## Intro
 
 It is common that a cloud-based data science project is partitioned into segments in each of which there is specific data science job to be finished. This segmentation of the whole work flow requires a optimal resource allocation and management that maximize working efficiency while minimizing potential cost.
