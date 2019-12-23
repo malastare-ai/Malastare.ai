@@ -2,6 +2,9 @@
 ## Rihad Variawa, Data Scientist
 ## Predictive Modeling - *Portugese banks' telemarketing campaign*
 
+<p align="center">
+  <img src="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMalastare-Artificial-Intelligence%2Fimage_gallery%2Flogo1.png" />
+</p>
 
 Received: 06 August 2019; Accepted: 15 December 2019; Published: 21 December 2019
 
