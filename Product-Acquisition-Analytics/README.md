@@ -6,6 +6,9 @@
 <img src=“./figs/logo.png” align="center" width="450px”/>
 </p>
 
+
+Received: 06 August 2019; Accepted: 15 December 2019; Published: 21 December 2019
+
 ## Business overview
 A Portugese Banks had conducted a telemarketing campaign for a **term-deposit product**. Through the campaign, they had collected the data about the prospects' demographics, other financial products they have purchased in the past (loans, deposits etc.), the number of times they were called etc
 
@@ -62,4 +65,5 @@ Monitoring is also important because problems are sometimes symptom of a deeper 
 
 Tip: Increase the quantity and frequency of reporting when you are working through an important problem.
 
+## Conflicts of Interest: The practitioners declare no conflict of interest.
 
