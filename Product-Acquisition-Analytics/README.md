@@ -61,5 +61,5 @@ Monitoring is also important because problems are sometimes symptom of a deeper 
 
 Tip: Increase the quantity and frequency of reporting when you are working through an important problem.
 
-## Conflicts of Interest: The practitioners declare no conflict of interest.
+## Conflicts of Interest: The practitioner declare no conflict of interest.
 
