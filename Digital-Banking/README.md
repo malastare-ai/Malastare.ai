@@ -40,7 +40,7 @@ Accenture found that 36 percent of executives indicate that the number of organi
 
 **The reality is that the risk of sharing data is disproportionately higher than the potential value of sharing data, even in the presence of trust.** Research suggests that companies experience a near 10 percent decline in revenue for six month after a large, public data breach. Further, it can take two years to recover that lost revenue, resulting in the loss of competitive advantage, but these **Privacy Preserving Techniques** (PPC) are assured to disrupt the enterprise data exchange space.
 
-### #According to the report, MPC allows a group to share the benefits of combining their data to create useful outputs while at the same time, ensuring that the actual source data is kept private from each other. 
+### According to the report, MPC allows a group to share the benefits of combining their data to create useful outputs while at the same time, ensuring that the actual source data is kept private from each other. 
 
 *The report reads: “These technologies support use cases that allow groups of companies to work together to generate outcomes or insights they cannot get alone but where they are not willing or able to share their data directly with each other. It can also help with concerns around input privacy, where each company wants to be sure they are not exposing anything other than what they intend to share.*
 
