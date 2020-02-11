@@ -12,9 +12,8 @@ Received: 10 August 2019; Accepted: 06 February 2020; Published: 11 February 202
 Two data analysis projects using **abalone data** to predict the Age of Abalone Species for harvesting. The first entails **exploratory data analysis.** The second involves **statistics** using ANOVA (analysis of variance) and (linear regression). Binary decision rules will be evaluated and a ROC (Receiver Operating Characteristic) curve developed. These projects require application of concepts and use of RStudio and R Markdown resulting in a .Rmd file and .html document.
 
 <p align="center">
-  <img src=“./img/tasmanian_abalone.png, width="450px”/>
+  <img src=“./img/tasmanian_abalone.png”/>
 </p>
-
 
 ### Background
 Abalones are an economic and recreational resource that is threatened by a variety of factors that includes: 
