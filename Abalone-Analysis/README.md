@@ -2,15 +2,9 @@
 ## RIHAD VARIAWA, Data Scientists
 ## Abalone Species
 
-
 <p align="center">
   <img src="./img/logo.png"/>
 </p>
-
-<p align="center">
-  <img src="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMalastare-Artificial-Intelligence%2Fimage_gallery%2Flogo1.png" />
-</p>
-
 
 Received: 10 August 2019; Accepted: 06 February 2020; Published: 11 February 2020
 
@@ -18,7 +12,7 @@ Received: 10 August 2019; Accepted: 06 February 2020; Published: 11 February 202
 Two data analysis projects using **abalone data** to predict the Age of Abalone Species for harvesting. The first entails **exploratory data analysis.** The second involves **statistics** using ANOVA (analysis of variance) and (linear regression). Binary decision rules will be evaluated and a ROC (Receiver Operating Characteristic) curve developed. These projects require application of concepts and use of RStudio and R Markdown resulting in a .Rmd file and .html document.
 
 <p align="center">
-<img src=“./img/tasmanian_abalone.png" align="center" width="450px”/>
+  <img src=“./img/tasmanian_abalone.png" width="450px”/>
 </p>
 
 
