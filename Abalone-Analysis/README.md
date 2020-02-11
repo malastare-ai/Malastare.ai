@@ -4,6 +4,10 @@
 
 
 <p align="center">
+  <img src="./img/logo.png"/>
+</p>
+
+<p align="center">
   <img src="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMalastare-Artificial-Intelligence%2Fimage_gallery%2Flogo1.png" />
 </p>
 
