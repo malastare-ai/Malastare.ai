@@ -3,7 +3,7 @@
 ## Predictive Analysis - *Geely Automobile*
 
 <p align="center">
-<img src=“./figs/logo.png”/>
+  <img src="./fig/logo.png"/>
 </p>
 
 Received: 14 November 2019; Accepted: 19 February 2020; Published: 23 February 2020
