@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="./image_gallery/malastare.png"/>
+</p>
+
+
 ![](https://media.giphy.com/media/YSNxyOkLhdk7S/giphy.gif)
 
 Building a startup that is focused exclusively on data science projects in two hypergrowth industries, blockchain, and artificial intelligence is truly exciting and game-changing. The reality is Malastare is a hypergrowth startup and it just isn’t for everyone. Unapologetically, we work hard, run hard, keep bureaucracy to a minimum and hold ourselves accountable in our quest to build something special. If these things interest you, you are in the right place.
