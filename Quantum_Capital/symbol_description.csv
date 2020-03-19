@@ -1,0 +1,46 @@
+Symbol,Description,Type
+CL,Crude Oil WTI,Commodity
+SC,Crude Oil Brent,Commodity
+HO,ULSD NY Harbor (Heating Oil - Ultra Low Sulfer),Commodity
+RB,Gasoline RBOB,Commodity
+HP,Natural Gas(F),Commodity
+MT,Gulf Sour Crude Oil,Commodity
+NG,Natural Gas ,Commodity
+QA,Crude Oil Brent(F),Commodity
+QG,Natural Gas Mini,Commodity
+VE,Crude Oil VIX,Index
+DSEN,DJ US OIL&GAS,Index
+DSOG,DJ US OILGAS,Index
+DSOI,DJ US OILEQPSRV,Index
+DSOL,DJ US INTGOILGAS,Index
+DSOQ,DJ US OILEQPSRV,Index
+OILBR,Crude Oil Brent NYMEX,Index
+OILSW,Crude Oil Light Sweet NYMEX,Index
+OIV,CBOE/NYMEX WTI Volatility Index,Index
+OSX,Phlx Euro Style Oil Svc Index,Index
+OVX,CBOE CRUDE OIL VOLATILITY INDEX,Index
+SG3I,S&P GSCI Crude Oil Index,Index
+SG4A,S&P GSCI Crude Oil Index Total Return,Index
+SG5I,S&P GSCI Heating Oil Index,Index
+SPX,S&P 500 INDEX,Index
+SS1J,S&P 500 EQUAL WEIGHTED Energy [Sector],Index
+UOI,US Oil Iopv,Index
+PET_WRESTUS1_W,"U.S. Ending Stocks of Residual Fuel Oil, Weekly",
+PET_WPULEUS3_W,"U.S. Percent Utilization of Refinery Operable Capacity, Weekly",
+PET_WOCLEUS2_W,"U. S. Operable Crude Oil Distillation Capacity, Weekly",
+PET_WGTSTUS1_W,"U.S. Ending Stocks of Total Gasoline, Weekly",
+PET_WGRSTUS1_W,"U.S. Ending Stocks of Reformulated Motor Gasoline, Weekly",
+PET_WG4ST_NUS_1_W,"U.S. Ending Stocks of Conventional Motor Gasoline, Weekly",
+PET_WDISTUS1_W,"U.S. Ending Stocks of Distillate Fuel Oil, Weekly",
+PET_WDGSTUS1_W,"U.S. Ending Stocks of Distillate Fuel Oil, Greater Than 500 ppm Sulfur, Weekly",
+PET_WD1ST_NUS_1_W,"U.S. Ending Stocks of Distillate Fuel Oil, Greater than 15 to 500 ppm Sulfur, Weekly",
+PET_WD0ST_NUS_1_W,"U.S. Ending Stocks of Distillate Fuel Oil, 0 to 15 ppm Sulfur, Weekly",
+PET_WCSSTUS1_W,"U.S. Ending Stocks of Crude Oil in SPR, Weekly",
+PET_WCRSTUS1_W,"U.S. Ending Stocks of Crude Oil, Weekly",
+PET_WCRRIUS2_W,"U.S. Refiner Net Input of Crude Oil, Weekly",
+PET_WCESTUS1_W,"U.S. Ending Stocks excluding SPR of Crude Oil, Weekly",
+PET_WBCSTUS1_W,"U.S. Ending Stocks of Gasoline Blending Components, Weekly",
+PET_RWTC_W,"Cushing, OK WTI Spot Price FOB, Weekly",
+PET_RBRTE_W,"Europe Brent Spot Price FOB, Weekly",
+PET_EER_EPMRR_PF4_Y05LA_DPG_W,"Los Angeles Reformulated RBOB Regular Gasoline Spot Price, Weekly",
+PET_EER_EPD2F_PF4_Y35NY_DPG_W,"New York Harbor No. 2 Heating Oil Spot Price FOB, Weekly",
