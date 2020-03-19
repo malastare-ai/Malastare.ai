@@ -259,10 +259,10 @@ GARCH processes, being autoregressive, depend on past squared observations and p
 <h2>Quantum Capital</h2>
 
 <ul>
-	<li><a href="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMS-DataScience%2FQuantum_Capital%2FQuantumCapitalOverview.pdf">EXECUTIVE SUMMARY</a></li>
-	<li><a href="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMS-DataScience%2FQuantum_Capital%2FQuantumCapital.pdf">INVESTOR PITCH</a></li>
-	<li><a href="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMS-DataScience%2FQuantum_Capital%2FRVariawa_Research.pdf">COMMODITY PRICE PREDICTION AND RESEARCH</a></li>
-	<li><a href="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/?view=rmarkdown/">INVESTOR DASHBOARD</a></li>
+	<li><a href="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMalastare-Artificial-Intelligence%2FQuantum_Capital%2FQuantumCapital.pdf">EXECUTIVE SUMMARY</a></li>
+	<li><a href="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMalastare-Artificial-Intelligence%2FQuantum_Capital%2FQuantumCapitalOverview.pdf">INVESTOR PITCH</a></li>
+	<li><a href="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/file_show?path=%2Fcloud%2Fproject%2FMalastare-Artificial-Intelligence%2FQuantum_Capital%2FRVariawa_Research.pdf">COMMODITY PRICE PREDICTION AND RESEARCH</a></li>
+	<li><a href="https://r-variawa.rstudio.cloud/f2988da6bff2415a937693aa688ebfca/?view=rmarkdown">INVESTOR DASHBOARD</a></li>
 </ul>
 
 <p align="center">
