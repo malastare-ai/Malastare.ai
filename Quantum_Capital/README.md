@@ -243,7 +243,7 @@ Financial institutions typically use this model to estimate the volatility of re
 
 The general process for a GARCH model involves 3 steps. The first is to estimate a best-fitting autoregressive model. The second is to compute autocorrelations of the error term. The third step is to test for significance. Two other widely used approaches to estimating and predicting financial volatility are the classic historical volatility (VolSD) method and the exponentially weighted moving average volatility (VolEWMA) method.
 
-#### Example of GARCH Process
+#### GARCH Process
 GARCH models help to describe financial markets in which volatility can change, becoming more volatile during periods of financial crises or world events and less volatile during periods of relative calm and steady economic growth. 
 
 On a plot of returns, for example, stock returns may look relatively uniform for the years leading up to a financial crisis such as the one in 2007. In the time period following the onset of a crisis, however, returns may swing wildly from negative to positive territory. Moreover, the increased volatility may be predictive of volatility going forward. Volatility may then return to levels resembling that of pre-crisis levels or be more uniform going forward. A simple regression model does not account for this variation in volatility exhibited in financial markets and is not representative of the "black swan" events that occur more than one would predict.
