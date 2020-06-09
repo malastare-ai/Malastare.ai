@@ -3,9 +3,8 @@
 ### RIHAD VARIAWA
 
 <p align="center">
-<img src=“./figs/logo.png” align="center" width="450px”/>
+  <img src="./fig/logo.png"/>
 </p>
-
 
 The [global market for VR and AR in retail will reach USD 1.6 billion by 2025.](https://www.goldmansachs.com/insights/pages/virtual-and-augmented-reality-report.html) With such a huge potential market, retail businesses must look forward to adopting these technologies. The demand here will be substantial in the future as implementation of these technologies enables businesses to grow and increase financial prospects. Implementation of AR and VR in retail helps retailers and consumers alike have a better shopping experience while reducing operating costs for retailers, and offering an immersive, engaging experience to consumers.
 
@@ -38,8 +37,6 @@ Augmented Reality provides for a ‘try-before-you-buy’ option for consumers. 
 As with the beauty sector, the fashion and footwear sectors also have a ‘try-and-buy’ approach. AR can bring the process of fitting clothes and trying out new styles to homes. It will vastly increase the variety of options available to the consumer. Retailers can also provide the user with a wide variety of options online, but they are usually constrained with space in a physical outlet and offer fewer options for consumers to choose from. The shopping experience for the buyer is also greatly improved as they don’t have to go through the task of changing into different clothes to try them on which may get tiresome after some time. Same as with the beauty sector, retailers can provide discounts to users using digital shopping methods while retaining their profit margins.
 
 ## Conclusion
-###The future of VR and AR in retail
-
 Augmented and Virtual Reality has already made inroads in the retail sector. Considering the benefits and ease of trade they offer, these technologies are here to stay. Major retailers across various sectors have already begun reaping the benefits of augmented reality and virtual reality technologies. The positive response of the consumers regarding these technologies will only push the industry to adopt them at their organizations more aggressively. The data generated from the technologies will help study customers’ buying patterns and preferences to provide an improved experience to the retailer as well as the consumer.
 
 The implementation of AR and VR in retail offers new methods the industry can operate on. Both these technologies are extending and expanding on traditional services offered by the retail industry. The future of retail deeply involves technology and AR and VR are going to play a huge role in this services industry.

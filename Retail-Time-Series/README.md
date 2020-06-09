@@ -6,7 +6,7 @@
   <img src="./fig/logo.png"/>
 </p>
 
-Received: 06 February 2020; Accepted: 24 July 2020; Published: 29 July 2020
+Received: 06 February 2020; Accepted: 04 June 2020; Published: 09 June 2020
 
 ## About Time Series Analysis
 Time Series is one of the most commonly used phenomena in data science. It has a wide variety of applications ranging from weather forecasting, predicting sales to analyzing year on
